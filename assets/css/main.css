@@ -1273,3 +1273,63 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.mySlides {
+  display: none;
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 1688px; /* Prevent excessive height */
+  object-fit: contain; /* Ensures the entire image fits */
+}
+
+.w3-content {
+  max-width: 3000px; /* Set max width to match image */
+  width: 100%;
+  height: auto;
+  margin: auto; /* Center the slider */
+  position: relative;
+  overflow: hidden;
+}
+
+.w3-display-container {
+  width: 100%;
+  max-width: 3000px;
+  height: auto;
+}
+
+.mySlides.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
+
+.w3-left, .w3-right {
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.w3-left { left: 10px; }
+.w3-right { right: 10px; }
+
+.w3-badge {
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  background: gray;
+  border-radius: 50%;
+  margin: 3px;
+}
+
+.w3-badge.w3-white {
+  background: white;
+}

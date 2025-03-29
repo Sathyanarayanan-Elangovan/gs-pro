@@ -226,4 +226,71 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  let slideIndex = 0;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  
+  // Function to show a specific slide
+  function showDivs(n) {
+      if (n >= slides.length) {
+          slideIndex = 0;
+      } else if (n < 0) {
+          slideIndex = slides.length - 1;
+      } else {
+          slideIndex = n;
+      }
+  
+      // Hide all slides and remove active class
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].classList.remove("active");
+      }
+  
+      // Remove active class from all dots
+      for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove("w3-white");
+      }
+  
+      // Show the correct slide and highlight the correct dot
+      slides[slideIndex].classList.add("active");
+      dots[slideIndex].classList.add("w3-white");
+  }
+  
+  // Function for next/prev buttons
+  function plusDivs(n) {
+      showDivs(slideIndex + n);
+  }
+  
+  // Function for dot navigation
+  function currentDiv(n) {
+      showDivs(n);
+  }
+  
+  // Auto-slide function
+  function autoSlide() {
+      plusDivs(1);
+  }
+  
+  // Attach event listeners AFTER the page loads
+  document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("prevBtn").addEventListener("click", function () {
+          plusDivs(-1);
+      });
+  
+      document.getElementById("nextBtn").addEventListener("click", function () {
+          plusDivs(1);
+      });
+  
+      for (let i = 0; i < dots.length; i++) {
+          dots[i].addEventListener("click", function () {
+              currentDiv(parseInt(this.getAttribute("data-index")));
+          });
+      }
+  
+      // Show the first slide initially
+      showDivs(slideIndex);
+  
+      // Start auto-slide every 8 seconds
+      setInterval(autoSlide, 8000);
+  });
+  
 })();
